@@ -1,0 +1,95 @@
+MVC
+Model：数据模型层
+View：视图层，负责展示
+Comtroller：业务逻辑和控制逻辑
+
+前端开发环境
+代码编辑工具
+断点调试工具
+版本管理工具
+代码合并混淆工具
+依赖管理工具
+单元测试工具
+集成测试工具
+
+代码编辑工具-Sublime、WebStorm
+断点调试工具---chrome插件batarang
+版本管理工具--git
+开发和调试工具--NodeJS
+代码合并混淆工具--Grunt
+	grunt配合5个插件，其中uglify、concat、watch这三个插件很重要
+	新的 Grunt 项目，需要在项目中添加两份文件：package.json 和 Gruntfile
+	package.json: 此文件被npm用于存储项目的元数据，以便将此项目发布为npm模块。你可以在此文件中列出项目依赖的grunt和Grunt插件，放置于devDependencies配置段内
+	Gruntfile: 此文件被命名为 Gruntfile.js 或 Gruntfile.coffee，用来配置或定义任务（task）并加载Grunt插件的。 此文档中提到的 Gruntfile 其实说的是一个文件，文件名是 Gruntfile.js 或 Gruntfile.coffee。
+	package.json应当放置于项目的根目录中，与Gruntfile在同一目录中，并且应该与项目的源代码一起被提交。在上述目录(package.json所在目录)中运行npm install将依据package.json文件中所列出的每个依赖来自动安装适当版本的依赖。
+	下面列出了几种为你的项目创建package.json文件的方式：
+	·大部分 grunt-init 模版都会自动创建特定于项目的package.json文件。
+	·npm init命令会创建一个基本的package.json文件。
+	·复制下面的案例，并根据需要做扩充，参考此说明（https://docs.npmjs.com/files/package.json）.
+	{
+	  "name": "my-project-name",
+	  "version": "0.1.0",
+	  "devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-jshint": "~0.10.0",
+		"grunt-contrib-nodeunit": "~0.4.1",
+		"grunt-contrib-uglify": "~0.5.0"
+	  }
+	}
+	安装Grunt 和 grunt插件
+	向已经存在的package.json 文件中添加Grunt和grunt插件的最简单方式是通过npm install <module> --save-dev命令。此命令不光安装了<module>，还会自动将其添加到devDependencies 配置段中，遵循tilde version range格式。
+	例如，下面这条命令将安装Grunt最新版本到项目目录中，并将其添加到devDependencies内：
+	npm install grunt --save-dev
+	同样，grunt插件和其它node模块都可以按相同的方式安装。下面展示的实例就是安装 JSHint 任务模块：
+	npm install grunt-contrib-jshint --save-dev
+	在 Grunt 插件 页面可以看到当前可用的 Grunt 插件，他们可以直接在项目中安装并使用。
+	安装插件之后，请务必确保将更新之后的 package.json 文件提交到项目仓库中。
+	Gruntfile
+	Gruntfile.js 或 Gruntfile.coffee 文件是有效的 JavaScript 或 CoffeeScript 文件，应当放在你的项目根目录中，和package.json文件在同一目录层级，并和项目源码一起加入源码管理器。
+	Gruntfile由以下几部分构成：
+	·"wrapper" 函数
+	·项目与任务配置
+	·加载grunt插件和任务
+	·自定义任务
+依赖管理工具--bower
+	自动安装依赖的组件
+	组件之间的依赖检测
+	版本兼容性自动检测
+轻量级Server--http-server
+	进入D盘指令D:，进入D盘的文件夹指令cd D:\Website\Demo\Grunt，启动http-server服务指令http-server
+单元测试工具--karma
+	karma只是 一款用来跑测试用例的runner
+单元测试工具--jasmine
+	Jasmine四个核心概念：分组、用列、期望、匹配，分别对应Jasmine的四种函数
+	describe(string,function)这个函数表示分组，也就是一组测试用例
+	it(string,function)这个函数表示测试用例
+	expect(expression)表示期望expression这个表达式具有某个值或者具有某种行为
+	to***(arg)这个函数表示匹配
+专门为AngularJS定制的测试工具--Protractor
+	Protractor是一款集成测试工具，专门为AngularJS应用而设计
+	Protractor基于WebDriverJS
+	原理：利用WebDriverJS，可以借助于NodeJS直接调用浏览器（IE、FF、Chrome）的接口
+
+
+
+NodeJS安装
+1、安装过程基本直接“NEXT”就可以了。（windows的安装msi文件在过程中会直接添加path的系统变量，变量值是你的安装路径，例如“D:\Program Files\nodejs”）。
+2、安装完成后可以使用cmd（win+r然后输入cmd进入）测试下是否安装成功。方法：在cmd下输入node -v，出现版本提示就是完成了NodeJS的安装。
+3、npm的安装。由于新版的NodeJS已经集成了npm，所以之前npm也一并安装好了。同样可以使用cmd命令行输入"npm -v"来测试是否成功安装。出现版本提示便OK了。
+4、常规NodeJS的搭建到现在为止已经完成了，急不及待的话你可以在”cmd“输入”node“进入node开发模式下，输入NodeJS第一句：”hello world“ - 输入：console.log('hello world')。
+5、先配置npm的全局模块的存放路径以及cache的路径，例如我希望将以上两个文件夹放在NodeJS的主目录下，便在NodeJs下建立"node_global"及"node_cache"两个文件夹
+6、启动cmd，输入npm config set prefix "D:\Program Files\nodejs\node_global"//npm的全局模块的存放路径
+npm config set cache "D:\Program Files\nodejs\node_cache"//npm缓存路径
+7、现在我们来装个模块试试，选择express这个比较常用的模块。同样在cmd命令行里面，输入“npm install express -g”（“-g”这个参数意思是装到global目录下，也就是上面说设置的“C:\Program Files\nodejs\node_global”里面。）。待cmd里面的安装过程滚动完成后，会提示“express”装在了哪、版本还有它的目录结构是怎样。
+8、关闭cmd，打开系统对话框，“我的电脑”右键“属性”-“高级系统设置”-“高级”-“环境变量”。
+9、进入环境变量对话框，在系统变量下新建"NODE_PATH"，输入”D:\Program Files\nodejs\node_global\node_modules“。（ps：这一步相当关键。）
+2014.4.19新增：由于改变了module的默认地址，所以上面的用户变量都要跟着改变一下（用户变量"PATH"修改为“D:\Program Files\nodejs\node_global\”），要不使用module的时候会导致输入命令出现“xxx不是内部或外部命令，也不是可运行的程序或批处理文件”这个错误。
+10、以上步骤都OK的话，我们可以再次开启cmd命令行，进入node，输入“require('express')”来测试下node的模块全局路径是否配置正确了。正确的话cmd会列出express的相关信息。
+
+NodeJS常用命令
+npm install express -g
+node -v//版本提示
+npm -v//版本提示
+npm config set prefix "D:\Program Files\nodejs\node_global"//npm的全局模块的存放路径
+npm config set cache "D:\Program Files\nodejs\node_cache"//npm缓存路径
+

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/**
+ * angular style
+ * @author:zxyan
+ * @time:2016-04-12
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+    font: 12px/1.5 'Microsoft YaHei', 微软雅黑, 'Microsoft JhengHei', 华文细黑, STHeiti, MingLiu;
+}
+a {
+    color: #333;
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff9900;
+    cursor: pointer;
+    text-decoration: none;
+}
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li {
+    list-style-type: none
+}
+img {
+    border: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
